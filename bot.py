@@ -368,11 +368,7 @@ async def daily_card(interaction: discord.Interaction):
         await add_coins(interaction.user.id, 2)
 
    # 5) Embed bauen (nur Flow & Punchlines anzeigen)
-    color = (
-        discord.Color.gold() if rarity == "Legendary"
-        else (discord.Color.purple() if rarity == "Ultra Rare"
-              else (discord.Color.blurple() if rarity == "Rare" else discord.Color.dark_gray()))
-    )
+    color = get_rarity_color(rarity)
     embed = discord.Embed(
         title="🎴 Neue Karte gezogen!",
         description=f"**{name}**\nSeltenheit: **{rarity}**",
@@ -431,17 +427,15 @@ async def shop(interaction: discord.Interaction):
     card_id, name, rarity, image_url, flow, punch, *_ = card
     duplicate = await add_to_inventory(user_id, card_id)
 
-    # Duplikat → +2 Coins
+    # Duplikat → +5 Coins
     coins_footer = ""
 if duplicate:
     await add_coins(user_id, DUPLICATE_COINS)
     coins_footer = f" (Duplikat: +{DUPLICATE_COINS} Coins)"
-coins_after = await get_coins(user_id)
-    color = (
-    discord.Color.gold() if rarity == "Legendary"
-    else (discord.Color.purple() if rarity == "Ultra Rare"
-          else (discord.Color.blurple() if rarity == "Rare" else discord.Color.dark_gray()))
-)
+    coins_after = await get_coins(user_id)
+
+    # Embed bauen
+    color = get_rarity_color(rarity)
     embed = discord.Embed(
         title="🛒 Kauf erfolgreich!",
         description=f"Du hast **{name}** gezogen (Seltenheit: **{rarity}**).",
@@ -449,11 +443,15 @@ coins_after = await get_coins(user_id)
     )
     if image_url:
         embed.set_image(url=image_url)
+
     stats = []
-    if flow is not None:  stats.append(f"Flow: **{flow}**")
-    if punch is not None: stats.append(f"Punchlines: **{punch}**")
+    if flow is not None:
+        stats.append(f"Flow: **{flow}**")
+    if punch is not None:
+        stats.append(f"Punchlines: **{punch}**")
     if stats:
         embed.add_field(name="Stats", value=" · ".join(stats), inline=False)
+
     embed.set_footer(text=f"💰 Coins übrig: {coins_after}{coins_footer}")
 
     try:
