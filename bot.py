@@ -8,9 +8,20 @@ from discord.ext import commands
 from discord import app_commands
 from dotenv import load_dotenv
 
+DUPLICATE_COINS = int(os.getenv("DUPLICATE_COINS", "5"))
+
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
-GUILD_ID = int(os.getenv("GUILD_ID", "0"))
+raw_gid = os.getenv("GUILD_ID")
+
+try:
+    GUILD_ID = int(raw_gid) if raw_gid else None
+except ValueError:
+    print(f"WARNING: GUILD_ID is not numeric: {raw_gid!r}. Falling back to global sync.")
+    GUILD_ID = None
+
+if not TOKEN:
+    raise SystemExit("ERROR: DISCORD_TOKEN is missing")
 
 DB_PATH = os.getenv("DB_PATH", "cards.db")
 CARDS_JSON = os.getenv("CARDS_JSON", "cards.json")
@@ -382,7 +393,7 @@ async def daily_card(interaction: discord.Interaction):
     coins_now = await get_coins(interaction.user.id)
     footer = f"💰 TCG Coins: {coins_now}"
     if duplicate:
-        footer = f"+2 Coins für Duplikat · {footer}"
+        footer = f"+5 Coins für Duplikat · {footer}"
     embed.set_footer(text=footer)
 
     # 6) Öffentlich im Channel posten + ephemere Bestätigung (falls Rechte fehlen, nur ephemer)
@@ -422,11 +433,10 @@ async def shop(interaction: discord.Interaction):
 
     # Duplikat → +2 Coins
     coins_footer = ""
-    if duplicate:
-        await add_coins(user_id, 2)
-        coins_footer = " (Duplikat: +2 Coins)"
-
-    coins_after = await get_coins(user_id)
+if duplicate:
+    await add_coins(user_id, DUPLICATE_COINS)
+    coins_footer = f" (Duplikat: +{DUPLICATE_COINS} Coins)"
+coins_after = await get_coins(user_id)
     color = (
     discord.Color.gold() if rarity == "Legendary"
     else (discord.Color.purple() if rarity == "Ultra Rare"
