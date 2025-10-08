@@ -1,0 +1,566 @@
+[
+    {
+      "id": "romancommon",
+      "name": "Roman",
+      "rarity": "Common",
+      "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425142760876277920/romancommon.png?ex=68e68320&is=68e531a0&hm=93d033915782f216e2f0d87d1830ddb278e3002ec105bd353ffecfdea0cc8ec2&",
+      "stats": {"flow": 74, "punchlines": 80}
+    },
+    {
+      "id": "marceniccommon",
+      "name": "Marcenic",
+      "rarity": "Common",
+      "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425142760448721007/marceniccommon.png?ex=68e6831f&is=68e5319f&hm=bc63feb3ae6c592b90628e1295ab129cdea1225a943ab3b55a4277aef6e5adaa&",
+      "stats": {"flow": 60, "punchlines": 69}
+    },
+    {
+      "id": "haisecommon",
+      "name": "Haise",
+      "rarity": "Common",
+      "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425142759886422066/haisecommon.png?ex=68e6831f&is=68e5319f&hm=9d59bf448c8f4792788ec6e2f040b809fb601e93abc786c3c91dcdb916db00dd&",
+      "stats": {"flow": 79, "punchlines": 77}
+    },
+    {
+        "id": "mtmaskcommon",
+        "name": "M.T. Mask",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174162623824012/mtmaskcommon.png?ex=68e6a05e&is=68e54ede&hm=60be4f3225437e89d005d28602228c5448df5725bc99ba6be10bba8725e9742a&",
+        "stats": {"flow": 70, "punchlines": 75}
+    },
+    {
+        "id": "schorecommon",
+        "name": "Schore",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174163223478323/schorecommon.png?ex=68e6a05e&is=68e54ede&hm=b71eda219c47990b87fd6ecbc1e0a9796efdd3ba8fbdc169c3cfd2c51a74e453&",
+        "stats": {"flow": 77, "punchlines": 77}
+    },
+    {
+        "id": "roselincommon",
+        "name": "Roselin",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174163752222720/roselincommon.png?ex=68e6a05f&is=68e54edf&hm=ce54c6c94c8e24a51440c33d63f6aa64206bacea79067bbd57ab72582d59e6f6&",
+        "stats": {"flow": 80, "punchlines": 77}
+    },
+    {
+        "id": "xtraherbcommon",
+        "name": "Xtraherb",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174164146360442/xtraherbcommon.png?ex=68e6a05f&is=68e54edf&hm=13e564f121d8f4a5538c42a693ac338dffc3f340c4bfccf7d69a71fbd7e2af93&",
+        "stats": {"flow": 74, "punchlines": 80}
+    },
+    {
+        "id": "habekocommon",
+        "name": "Habeko",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174384049655818/habekocommon.png?ex=68e6a093&is=68e54f13&hm=5d4accaeb71bedc97abfd3cb3012c905035ed297b878ce05c3923255874692cd&",
+        "stats": {"flow": 75, "punchlines": 78}
+    },
+    {
+        "id": "basketcommon",
+        "name": "Basket",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174384552837292/basketcommon.png?ex=68e6a093&is=68e54f13&hm=6700910ee82d9fda6753974b3a3db1cbbea397f8c6cb171b45cbec600e937a51&",
+        "stats": {"flow": 74, "punchlines": 78}
+    },
+    {
+        "id": "rokcecommon",
+        "name": "Rokce",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174384913551540/rokcecommon.png?ex=68e6a093&is=68e54f13&hm=b560f5597305d48b5087bbee762037c77c69806da9a0f1cf6a49db63d189a320&",
+        "stats": {"flow": 77, "punchlines": 77}
+    },
+    {
+        "id": "tsetcommon",
+        "name": "T-Set",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174385266004120/tsetcommon.png?ex=68e6a093&is=68e54f13&hm=1dffdb78f9c84317910991d77c38f11f6ce207cf3af298f2ed19ad23e27ff50b&",
+        "stats": {"flow": 73, "punchlines": 75}
+    },
+    {
+        "id": "zajocommon",
+        "name": "Zajo",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174742528294964/zajocommon.png?ex=68e6a0e9&is=68e54f69&hm=9ab7d7d2bfda6f32e4795a96f67a0efcc57c357b4b69b6c6c04e2d73d3132d0c&",
+        "stats": {"flow": 72, "punchlines": 72}
+    },
+    {
+        "id": "jaxcommon",
+        "name": "JAX",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174742952050829/jaxcommon.png?ex=68e6a0e9&is=68e54f69&hm=aa953c54c6ecb35f8c6172d78fc8a953c2061dfb4596af4bca18c238c9cad534&",
+        "stats": {"flow": 64, "punchlines": 66}
+    },
+    {
+        "id": "ledermayercommon",
+        "name": "Ledermayer",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174743480406057/ledermayercommon.png?ex=68e6a0e9&is=68e54f69&hm=0089a5ae277bc2631281b2ba9fa5e4bcc958333bdb9d90877621d625b3cade71&",
+        "stats": {"flow": 71, "punchlines": 70}
+    },
+    {
+        "id": "mikaelyangcommon",
+        "name": "Mikael Yang",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174743996301392/mikaelyangcommon.png?ex=68e6a0e9&is=68e54f69&hm=2295c71875f76b1dc63b0a21759423d12c588231878975479f3ff8aceb04b462&",
+        "stats": {"flow": 78, "punchlines": 74}
+    },
+    {
+        "id": "philharmonycommon",
+        "name": "philharmony",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174922086580325/philharmonycommon.png?ex=68e6a113&is=68e54f93&hm=b1428f200cf6718db5bedd6531e9c561ad8562f26e4942c78984835570946f67&",
+        "stats": {"flow": 70, "punchlines": 73}
+    },
+    {
+        "id": "noticecommon",
+        "name": "Notice",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174922526851183/noticecommon.png?ex=68e6a114&is=68e54f94&hm=7f6f8ca610bfcd3babdcc844c39721e84c286e25a799cedf763a3856162c06b9&",
+        "stats": {"flow": 64, "punchlines": 70}
+    },
+    {
+        "id": "4cecommon",
+        "name": "4CE",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174923046948975/4cecommon.png?ex=68e6a114&is=68e54f94&hm=fad44fc65d45b0b8f7dee80638fe3fbcd53baadf0e640d06bd61fe2c31956546&",
+        "stats": {"flow": 73, "punchlines": 73}
+    },
+    {
+        "id": "crackbundycommon",
+        "name": "Crack Bundy",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425174923424432158/crackbundycommon.png?ex=68e6a114&is=68e54f94&hm=885400d0fda610faecc4d35596608b3fa2ec12e19b8053a1487a9f22e6bf046d&",
+        "stats": {"flow": 78, "punchlines": 74}
+    },
+    {
+        "id": "tomillacommon",
+        "name": "Tomilla",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175512342593566/tomillacommon.png?ex=68e6a1a0&is=68e55020&hm=292e6c03cdb4fc69058a046c484dd1c142dfe2ff1edc6c7bd221131467e1847f&",
+        "stats": {"flow": 72, "punchlines": 75}
+    },
+    {
+        "id": "ziegenmanncommon",
+        "name": "Ziegenmann",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175512883400846/ziegenmanncommon.png?ex=68e6a1a0&is=68e55020&hm=6140a7f116458fd08c39d445a1a8245aa02caa34ca68e9bee30e823cd2006d1f&",
+        "stats": {"flow": 75, "punchlines": 72}
+    },
+    {
+        "id": "arsicommon",
+        "name": "Arsi",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175513344905337/arsicommon.png?ex=68e6a1a0&is=68e55020&hm=9cbbee4adeba5b98047556d0360f71de9256e88faa530b48873ef10953f27d91&",
+        "stats": {"flow": 60, "punchlines": 62}
+    },
+    {
+        "id": "kingkniebelcommon",
+        "name": "King Kniebel",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175513818988624/kingkniebelcommon.png?ex=68e6a1a0&is=68e55020&hm=6ca66c0b3af56cdb3f8eeedf8815607a9bcbcb1f9accc3f0c3f86339f18d90f7&",
+        "stats": {"flow": 73, "punchlines": 76}
+    },
+    {
+        "id": "stepkecommon",
+        "name": "Stepke",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175701660897400/stepkecommon.png?ex=68e6a1cd&is=68e5504d&hm=ad50e1c23ad471fc2930e5698772fc33d9410a613a905951f3a14f1b76a22ee1&",
+        "stats": {"flow": 60, "punchlines": 65}
+    },
+    {
+        "id": "maestrocommon",
+        "name": "Maestro",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175702302359702/maestrocommon.png?ex=68e6a1cd&is=68e5504d&hm=e496d7ea80f1d07bd4eecb09da0a005757f0ce83312158d629f1517939758108&",
+        "stats": {"flow": 75, "punchlines": 69}
+    },
+    {
+        "id": "earlcursedcommon",
+        "name": "EarlCursed",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175702763737209/earlcursedcommon.png?ex=68e6a1ce&is=68e5504e&hm=ca3ab5bbe146c8c4ca9a0abd349c628699b67f7e31b540cffd6fc095250eed72&",
+        "stats": {"flow": 60, "punchlines": 69}
+    },
+    {
+        "id": "andircommon",
+        "name": "Andir",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175703451734207/andircommon.png?ex=68e6a1ce&is=68e5504e&hm=f60cca4173a7dce74550083e8291fd4caa64b54b5ad23e3c768ded681ef54a3d&",
+        "stats": {"flow": 71, "punchlines": 70}
+    },
+    {
+        "id": "locodinhocommon",
+        "name": "Locodinho",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175891624984616/locodinhocommon.png?ex=68e6a1fb&is=68e5507b&hm=45c962e27cf43818d2a88a357e2b6170cb22e199e23881402d16f45e15235505&",
+        "stats": {"flow": 71, "punchlines": 72}
+    },
+    {
+        "id": "pantodoncommon",
+        "name": "PantoDon",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175891956338759/pantodoncommon.png?ex=68e6a1fb&is=68e5507b&hm=cbbd2e8a5a7ed22b0b94f7724ebae5160b9b4c8553eab9bff89d5f96025514a8&",
+        "stats": {"flow": 75, "punchlines": 73}
+    },
+    {
+        "id": "livcommon",
+        "name": "liv",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175892426231980/livcommon.png?ex=68e6a1fb&is=68e5507b&hm=8b27deca9609bc52505534bf13ce062ac70e364b09b8de328e34dd38dd6d0bdd&",
+        "stats": {"flow": 76, "punchlines": 75}
+    },
+    {
+        "id": "mentescommon",
+        "name": "Mentes",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425175893017366580/mentescommon.png?ex=68e6a1fb&is=68e5507b&hm=08a5e36bca4fa890c5eac2a71c9492c3791bc5e3f774be7f45975aaba8c3c13e&",
+        "stats": {"flow": 80, "punchlines": 79}
+    },
+    {
+        "id": "nachticommon",
+        "name": "Nachti",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176054586151032/nachticommon.png?ex=68e6a221&is=68e550a1&hm=053b2d75d745daab53d94080a9e5f0606a1abc14242df3fb100d6d974cf31c53&",
+        "stats": {"flow": 75, "punchlines": 76}
+    },
+    {
+        "id": "aalmanncommon",
+        "name": "Aalmann",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176055286857738/aalmanncommon.png?ex=68e6a222&is=68e550a2&hm=37aa8ca2d2277e92e874e9a403550baa4e68b87c4c70c7177b14ff6f44e2d713&",
+        "stats": {"flow": 75, "punchlines": 79}
+    },
+    {
+        "id": "whylecommon",
+        "name": "Whyle",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176055655698482/whylecommon.png?ex=68e6a222&is=68e550a2&hm=f973c35ee8fe5749755a4930afc8003a6ec4aa7b89c17784f78779d2170422d2&",
+        "stats": {"flow": 78, "punchlines": 80}
+    },
+    {
+        "id": "mhhh7887common",
+        "name": "mhhh7887",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176056037376050/mhhh7887common.png?ex=68e6a222&is=68e550a2&hm=293fd302c7c5642588a70bcc106574b9ef34ac4a8f03a6a06362005d4082c716&",
+        "stats": {"flow": 72, "punchlines": 74}
+    },
+    {
+        "id": "mottecommon",
+        "name": "motte",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176227433550066/mottecommon.png?ex=68e6a24b&is=68e550cb&hm=1b296ef2fffb7f128221db65fad927112782bfd490260d0ecfadb6d31619031b&",
+        "stats": {"flow": 75, "punchlines": 76}
+    },
+    {
+        "id": "demarcommon",
+        "name": "DEMAR",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176227769221150/demarcommon.png?ex=68e6a24b&is=68e550cb&hm=ae7a6eb78fcf65fea6c6037f3d9baae7f7c1938dbfc6d5904f0f97160926d439&",
+        "stats": {"flow": 73, "punchlines": 72}
+    },
+    {
+        "id": "femistocommon",
+        "name": "Femisto",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176228150771814/femistocommon.png?ex=68e6a24b&is=68e550cb&hm=d31a23ffd8d154cb89ed81e6630ecdea2ca42af0d2e75b5412dcadab9532045e&",
+        "stats": {"flow": 63, "punchlines": 63}
+    },
+    {
+        "id": "namechangacommon",
+        "name": "Name Changa",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176228549365811/namechangacommon.png?ex=68e6a24b&is=68e550cb&hm=aa96de522bbc93e242c8bf7e3c283a1e24ba687173991950d0d9ee215994b54e&",
+        "stats": {"flow": 50, "punchlines": 2}
+    },
+    {
+        "id": "manyczcommon",
+        "name": "Manycz",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176452063559832/manyczcommon.png?ex=68e6a280&is=68e55100&hm=62ba93f1122a252c01d5f565fd1ae485fc5e3f84706dab929df69140e2d5f8aa&",
+        "stats": {"flow": 76, "punchlines": 77}
+    },
+    {
+        "id": "cna35common",
+        "name": "Cna_35",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176452529258537/cna35common.png?ex=68e6a280&is=68e55100&hm=477e7e9ee1bab1dc904d03377c3b9ae01d9501aef87a3b6028897a68c7a3458e&",
+        "stats": {"flow": 55, "punchlines": 60}
+    },
+    {
+        "id": "pisseimercommon",
+        "name": "Pisseimer",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176453020123177/pisseimercommon.png?ex=68e6a280&is=68e55100&hm=764941b4111d364f89f29a4010eacaf97b34638c4e952a9f780dbb553d71ffcb&",
+        "stats": {"flow": 0, "punchlines": 0}
+    },
+    {
+        "id": "herbertheidelbeercommon",
+        "name": "Herbert Heidelbeer",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176453389090816/herbertheidelbeercommon.png?ex=68e6a280&is=68e55100&hm=71c02213b2de5c84d11f29b1a26455df18ba01daebc569be23395fb8667263c5&",
+        "stats": {"flow": 73, "punchlines": 74}
+    },
+    {
+        "id": "xodieocommon",
+        "name": "XoDieo",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176627087802453/xodieocommon.png?ex=68e6a2aa&is=68e5512a&hm=ed6a2f75c901ef1b38b0ac621ae0b7b012586f27e299ff80d19b0006ee281897&",
+        "stats": {"flow": 74, "punchlines": 71}
+    },
+    {
+        "id": "henicommon",
+        "name": "Heni",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176627389923439/henicommon.png?ex=68e6a2aa&is=68e5512a&hm=07a454d679d6f6bd746fcd17a1133fe18cff8a10202fc1a8e43d20b40f854dc3&",
+        "stats": {"flow": 77, "punchlines": 76}
+    },
+    {
+        "id": "ivencommon",
+        "name": "Iven",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176627721011240/ivencommon.png?ex=68e6a2aa&is=68e5512a&hm=a6458361a77257eafb1f1285d5caeff62397ca746ce44556aa53e8b346a09f39&",
+        "stats": {"flow": 74, "punchlines": 75}
+    },
+    {
+        "id": "benschocommon",
+        "name": "Benscho",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176628039909426/benschocommon.png?ex=68e6a2aa&is=68e5512a&hm=d5fddd24abdc69d328010fd25b15d3b2864532cb02b02b6616acae4f953fe671&",
+        "stats": {"flow": 74, "punchlines": 71}
+    },
+    {
+        "id": "blattgemachtcommon",
+        "name": "BLATTgemacht",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176781929054328/blattgemachtcommon.png?ex=68e6a2cf&is=68e5514f&hm=980ed51a7321f17c2ba0d07e6267dea7416a05022cac2360dae88a8af9c6f4cf&",
+        "stats": {"flow": 74, "punchlines": 69}
+    },
+    {
+        "id": "minuseinscommon",
+        "name": "minuseins",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176782285443253/minuseinscommon.png?ex=68e6a2cf&is=68e5514f&hm=599a0e2aa8f832f3baec7bcfbfa7be448b2c9a7d310553f9b626953f21336795&",
+        "stats": {"flow": 75, "punchlines": 73}
+    },
+    {
+        "id": "rapstanlycommon",
+        "name": "Rapstanly",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176782612467764/rapstanlycommon.png?ex=68e6a2cf&is=68e5514f&hm=a411f236f6183f6b0a96719cef0cac6b6794e71586bdb6ce4575ecb32e7b3b48&",
+        "stats": {"flow": 76, "punchlines": 72}
+    },
+    {
+        "id": "bubah00kcommon",
+        "name": "Bubah00k",
+        "rarity": "Common",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425176782981693461/bubah00kcommon.png?ex=68e6a2cf&is=68e5514f&hm=cd02417c85e2cb1868c353c66531a863d8f75ebf64cbae5c8f2873bb82e2aa4b&",
+        "stats": {"flow": 73, "punchlines": 70}
+    },
+    {
+        "id": "roselinrare",
+        "name": "Roselin",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203111659700245/roselinrare.png?ex=68e6bb54&is=68e569d4&hm=5d175bc42fb0f02fa787bba8ac10d8af7be824695ba718dd81f032f8e7b53a4d&",
+        "stats": {"flow": 85, "punchlines": 82}
+    },
+    {
+        "id": "romanrare",
+        "name": "Roman",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203112439975947/romanrare.png?ex=68e6bb54&is=68e569d4&hm=f60423ead2b16b653e0623314fd732deb4ebd3f6519647ee94a3eb9cacb3dad3&",
+        "stats": {"flow": 80, "punchlines": 85}
+    },
+    {
+        "id": "basketrare",
+        "name": "Basket",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203113249341440/basketrare.png?ex=68e6bb55&is=68e569d5&hm=58d0152cd9278ae52e5d3fda65bfca7768b72170e716ee6ca40353ee15f8defb&",
+        "stats": {"flow": 79, "punchlines": 83}
+    },
+    {
+        "id": "rokcerare",
+        "name": "Rokce",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203113731690496/rokcerare.png?ex=68e6bb55&is=68e569d5&hm=4a4e196696132c5d404761060b2dbfae78e4f69430f2d08b3d34af627431b780&",
+        "stats": {"flow": 82, "punchlines": 82}
+    },
+    {
+        "id": "tsetrare",
+        "name": "T-Set",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203326353408094/tsetrare.png?ex=68e6bb88&is=68e56a08&hm=59250dbb5c97ced9e9c25f945665d64cc591e1bbb745fd299c01944355d315d2&",
+        "stats": {"flow": 78, "punchlines": 80}
+    },
+    {
+        "id": "whylerare",
+        "name": "Whyle",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203326680694794/whylerare.png?ex=68e6bb88&is=68e56a08&hm=4382b7d803116fdddf1b1edc008bfd986e2470293e6a9fdf7675baf73efea47d&",
+        "stats": {"flow": 83, "punchlines": 85}
+    },
+    {
+        "id": "mentesrare",
+        "name": "Mentes",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203327070900394/mentesrare.png?ex=68e6bb88&is=68e56a08&hm=0138b70df7b4bc3f76c37b473279ebc763ad90098abcc868cc619e5fc816369c&",
+        "stats": {"flow": 85, "punchlines": 84}
+    },
+    {
+        "id": "nachtirare",
+        "name": "Nachti",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203327397789828/nachtirare.png?ex=68e6bb88&is=68e56a08&hm=908850cb1bb784ef0841d4822bb33060d02ec166a87c49ddf8cc192fd8c63af3&",
+        "stats": {"flow": 80, "punchlines": 81}
+    },
+    {
+        "id": "livrare",
+        "name": "liv",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203491181297725/livrare.png?ex=68e6bbaf&is=68e56a2f&hm=a86835982a96e92cd9314d7104206b974224378d8a7d15ff9b4a2e97a957aecc&",
+        "stats": {"flow": 81, "punchlines": 80}
+    },
+    {
+        "id": "henirare",
+        "name": "Heni",
+        "rarity": "Rare",
+        "image_url": "hhttps://cdn.discordapp.com/attachments/1425117926486179951/1425203491567046777/henirookie.png?ex=68e6bbaf&is=68e56a2f&hm=5f494d22e97dedb56e0cc09eb48546a3389262d8afbf0cda9461a3baa8a75cec&",
+        "stats": {"flow": 82, "punchlines": 81}
+    },
+    {
+        "id": "xtraherbrare",
+        "name": "Xtraherb",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203491885944882/xtraherbrare.png?ex=68e6bbaf&is=68e56a2f&hm=a0041ff81528b17827985e17b5d973c4d549d6c2642be88371152c6f4f3aeebc&",
+        "stats": {"flow": 79, "punchlines": 85}
+    },
+    {
+        "id": "habekorare",
+        "name": "Habeko",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203492196450434/habekorare.png?ex=68e6bbaf&is=68e56a2f&hm=bf30cdd3712404495273154a9df16346103565591288748fcaca29549c20618a&",
+        "stats": {"flow": 80, "punchlines": 83}
+    },
+    {
+        "id": "earlcursedrare",
+        "name": "EarlCursed",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203697947902174/earlcursedrare.png?ex=68e6bbe0&is=68e56a60&hm=6a76da4b7f54ccb0e31a27430026cfa5ec0f3e663bfdd17a4abe2461d0f7342e&",
+        "stats": {"flow": 65, "punchlines": 74}
+    },
+    {
+        "id": "marcenicrare",
+        "name": "Marcenic",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203698606411847/marcenicrare.png?ex=68e6bbe0&is=68e56a60&hm=259b10720856447c8bde25222d330bc02284aa7e70a8c49210e1fc656f7c486b&",
+        "stats": {"flow": 65, "punchlines": 74}
+    },
+    {
+        "id": "haiserare",
+        "name": "Haise",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203699181158503/haiserare.png?ex=68e6bbe0&is=68e56a60&hm=1953e3a38a8318c398852c299e0be58d6bdd8ccb0561d315806a27d1448c379b&",
+        "stats": {"flow": 84, "punchlines": 82}
+    },
+    {
+        "id": "maestrorare",
+        "name": "Maestro",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203699726291064/maestrorare.png?ex=68e6bbe1&is=68e56a61&hm=1862ddab9dcd50e557d99b0b47944f4acd99db4b29225b41bb84d4c5c3a9389e&",
+        "stats": {"flow": 80, "punchlines": 74}
+    },
+    {
+        "id": "kingkniebelrare",
+        "name": "King Kniebel",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203870522671224/kingkniebelrare.png?ex=68e6bc09&is=68e56a89&hm=6a4247b189f02f78b6006a0ad781d93ea1cf7caa62da8bb4845449908a75975a&",
+        "stats": {"flow": 78, "punchlines": 81}
+    },
+    {
+        "id": "schorerare",
+        "name": "Schore",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203870925066381/schorerare.png?ex=68e6bc09&is=68e56a89&hm=83f0a00076bcd64c8a4921aae39bb9b48e9241b890ade582057ae82c3defc8d4&",
+        "stats": {"flow": 82, "punchlines": 82}
+    },
+    {
+        "id": "ledermayerrare",
+        "name": "Ledermayer",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425203871353012265/ledermayerrare.png?ex=68e6bc09&is=68e56a89&hm=0871e8ac953c538028c7f1799ae2b24c244b722697f1fae6caee7b5ac759f53e&",
+        "stats": {"flow": 76, "punchlines": 75}
+    },
+    {
+        "id": "marcenicultrarare",
+        "name": "Marcenic Rookie",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425232961502056671/marcenicultrarare.png?ex=68e6d721&is=68e585a1&hm=b22775e17af13f09a84677e4bcdd5e9b9e74e4aca7b4889d23c9e5f6744673f9&",
+        "stats": {"flow": 75, "punchlines": 84}
+    },
+    {
+        "id": "roselinultrarare",
+        "name": "Roselin Rookie",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425232961871286343/roselinultrarare.png?ex=68e6d721&is=68e585a1&hm=ec1103637792793c1ae674519fd005463dd5f2ff16d6c2792f1ad1e0d5fe5fa8&",
+        "stats": {"flow": 95, "punchlines": 92}
+    },
+    {
+        "id": "haiseultrarare",
+        "name": "Haise",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425232962257158164/haiseultrarare.png?ex=68e6d721&is=68e585a1&hm=793849a3379ea4962630a1312062b40fe671f56b83d4d3a542166216c18f9a2b&",
+        "stats": {"flow": 94, "punchlines": 92}
+    },
+    {
+        "id": "basketultrarare",
+        "name": "Basket",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425232962798227526/basketultrarare.png?ex=68e6d721&is=68e585a1&hm=c0a445f5f0e1c289759f6322beb8f070844187bcbc9f8500046444f11ac15f0f&",
+        "stats": {"flow": 89, "punchlines": 93}
+    },
+    {
+        "id": "romanultrarare",
+        "name": "Roman",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233143107027146/romanultrarare.png?ex=68e6d74c&is=68e585cc&hm=a9358c7c29f387bee1a0870d51426e02920106e466934449e7b5a71d8c8d5f2f&",
+        "stats": {"flow": 90, "punchlines": 95}
+    },
+    {
+        "id": "rokceultrarare",
+        "name": "Rokce",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233143644029048/rokceultrarare.png?ex=68e6d74c&is=68e585cc&hm=dca31c5deb7274f0cb770bd59f84fb59f7a27284899108b1c9ff401c65c8633d&",
+        "stats": {"flow": 92, "punchlines": 92}
+    },
+    {
+        "id": "namechangaultrarare",
+        "name": "Name Changa",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233144084435014/namechangaultrarare.png?ex=68e6d74d&is=68e585cd&hm=880cdca0b7d397bb47d54fef81b86ebed783e67be2570edab7bae055931ef6c6&",
+        "stats": {"flow": 70, "punchlines": 22}
+    },
+    {
+        "id": "yameslegendary",
+        "name": "Yames",
+        "rarity": "Legendary",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233144516182127/yameslegendary.png?ex=68e6d74d&is=68e585cd&hm=5005bd8059c5d657834a84ff10bfbf049b925601eef991ec06820ecb01f9119e&",
+        "stats": {"flow": 100, "punchlines": 100}
+    },
+    {
+        "id": "romanlegendary",
+        "name": "Roman",
+        "rarity": "Legendary",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233300347162654/romanlegendary.png?ex=68e6d772&is=68e585f2&hm=da2f4589ceef55acee1cf7daada12ffe74168d5fb33c99eb988a7e9d302b7c62&",
+        "stats": {"flow": 100, "punchlines": 100}
+    },
+    {
+        "id": "haiselegendary",
+        "name": "Haise",
+        "rarity": "Legendary",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233300666060870/haiselegendary.png?ex=68e6d772&is=68e585f2&hm=93d7cf19e81747a8d0a877bf39cf26b8e4be71bda4f66ec51a937fed1c3cb543&",
+        "stats": {"flow": 100, "punchlines": 100}
+    }
+    
+                                            
+  ]
+
+  
