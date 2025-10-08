@@ -8,7 +8,7 @@ from discord.ext import commands
 from discord import app_commands
 from dotenv import load_dotenv
 
-DUPLICATE_COINS = int(os.getenv("DUPLICATE_COINS", "5"))
+
 
 load_dotenv()
 TOKEN = os.getenv("DISCORD_TOKEN")
@@ -26,6 +26,19 @@ if not TOKEN:
 DB_PATH = os.getenv("DB_PATH", "cards.db")
 CARDS_JSON = os.getenv("CARDS_JSON", "cards.json")
 PULL_COOLDOWN_SECONDS = 5 * 60 * 60
+DUPLICATE_COINS = int(os.getenv("DUPLICATE_COINS", "5"))
+
+# ---- Rarity → Embed-Farbe -----------------------------------------------
+def get_rarity_color(rarity: str) -> discord.Color:
+    r = (rarity or "").strip().lower()
+    if r == "legendary":
+        return discord.Color.gold()
+    if r == "ultra rare":
+        return discord.Color.purple()
+    if r == "rare":
+        return discord.Color.blurple()
+    # default (u. a. "common")
+    return discord.Color.dark_gray()
 
 # Seltenheits-Gewichte (anpassbar)
 DEFAULT_WEIGHTS = {
@@ -407,6 +420,8 @@ async def daily_card(interaction: discord.Interaction):
 async def shop(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
     user_id = interaction.user.id
+
+    # Preis prüfen
     coins = await get_coins(user_id)
     if coins < 10:
         return await interaction.followup.send(f"💰 Du hast {coins} Coins. Du brauchst **10**.", ephemeral=True)
@@ -419,23 +434,28 @@ async def shop(interaction: discord.Interaction):
         )
         await db.commit()
 
+    # Karte ziehen
     rarity = await pick_rarity()
     card = await pick_random_card_for_rarity(rarity)
     if card is None:
         return await interaction.followup.send("⚠️ Shop leer. Bitte später nochmal.", ephemeral=True)
 
     card_id, name, rarity, image_url, flow, punch, *_ = card
+
+    # In Inventar packen + Duplikat prüfen
     duplicate = await add_to_inventory(user_id, card_id)
 
-    # Duplikat → +5 Coins
+    # Duplikat → +5 Coins (per Konstante)
     coins_footer = ""
-if duplicate:
-    await add_coins(user_id, DUPLICATE_COINS)
-    coins_footer = f" (Duplikat: +{DUPLICATE_COINS} Coins)"
+    if duplicate:
+        await add_coins(user_id, DUPLICATE_COINS)  # z.B. 5
+        coins_footer = f" (Duplikat: +{DUPLICATE_COINS} Coins)"
+
+    # aktuelles Guthaben
     coins_after = await get_coins(user_id)
 
     # Embed bauen
-    color = get_rarity_color(rarity)
+    color = get_rarity_color(rarity)  # Helper: Legendary/Ultra Rare/Rare/Common → Farbe
     embed = discord.Embed(
         title="🛒 Kauf erfolgreich!",
         description=f"Du hast **{name}** gezogen (Seltenheit: **{rarity}**).",
@@ -454,10 +474,15 @@ if duplicate:
 
     embed.set_footer(text=f"💰 Coins übrig: {coins_after}{coins_footer}")
 
+    # Posten (öffentlich, falls erlaubt) + Bestätigung an Käufer
     try:
-        await interaction.channel.send(content=f"{interaction.user.mention} hat im Shop gekauft! 🛒", embed=embed)
+        await interaction.channel.send(
+            content=f"{interaction.user.mention} hat im Shop gekauft! 🛒",
+            embed=embed
+        )
         await interaction.followup.send("✅ Kauf wurde im Channel gepostet.", ephemeral=True)
     except discord.Forbidden:
+        # Fallback: nur für den Nutzer anzeigen
         await interaction.followup.send(embed=embed, ephemeral=True)
 
 class InventoryView(discord.ui.View):
