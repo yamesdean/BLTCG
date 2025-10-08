@@ -1,0 +1,12 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets & lokale Daten
+.env
+*.db
+
+# OS/Editor
+.DS_Store
+Thumbs.db
