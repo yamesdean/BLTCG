@@ -161,6 +161,57 @@ async def transfer_card(user_from: int, user_to: int, card_id: str, qty: int):
         )
         await db.commit()
 
+async def get_collection_leaderboard(limit: int = 10):
+    """
+    Liefert pro User:
+      - score: gewichtete Punkte nach Rarity
+      - cards_total: Gesamtanzahl Karten (Menge)
+    Sortiert nach score DESC, dann cards_total DESC.
+    """
+    query = """
+    SELECT
+      uc.user_id AS user_id,
+      SUM(uc.qty) AS cards_total,
+      SUM(
+        uc.qty * CASE c.rarity
+          WHEN 'Legendary'  THEN 10
+          WHEN 'Ultra Rare' THEN 5
+          WHEN 'Rare'       THEN 2
+          ELSE                   1
+        END
+      ) AS score
+    FROM user_cards uc
+    JOIN cards c ON c.id = uc.card_id
+    GROUP BY uc.user_id
+    ORDER BY score DESC, cards_total DESC
+    LIMIT ?
+    """
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute(query, (limit,)) as cur:
+            rows = await cur.fetchall()
+    # rows: [(user_id, cards_total, score), ...]
+    return rows
+
+
+async def get_cardcount_leaderboard(limit: int = 10):
+    """
+    Liefert pro User: Gesamtanzahl Karten (ohne Gewichtung).
+    """
+    query = """
+    SELECT
+      uc.user_id,
+      SUM(uc.qty) AS cards_total
+    FROM user_cards uc
+    GROUP BY uc.user_id
+    ORDER BY cards_total DESC
+    LIMIT ?
+    """
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute(query, (limit,)) as cur:
+            rows = await cur.fetchall()
+    return rows
+
+
 class TradeView(discord.ui.View):
     def __init__(self, trade_id: int, from_user: int, to_user: int):
         super().__init__(timeout=120)
@@ -611,35 +662,56 @@ async def inventory(interaction: discord.Interaction):
     await interaction.followup.send(embed=view.build_embed(), view=view, ephemeral=True)
 
 @guild_only
-@bot.tree.command(name="top", description="Leaderboard: TCG Coins & Karten-Anzahl")
-async def top(interaction: discord.Interaction):
+@bot.tree.command(name="top", description="Leaderboard: Wertvollste Sammlungen & größte Sammlungen.")
+@app_commands.describe(limit="Wie viele Plätze anzeigen (Standard 10, max 25)")
+async def top_leaderboard(interaction: discord.Interaction, limit: int = 10):
+    limit = max(1, min(25, limit))
     await interaction.response.defer(ephemeral=False)
-    async with aiosqlite.connect(DB_PATH) as db:
-        async with db.execute("""
-            SELECT u.user_id, COALESCE(u.coins,0) as coins
-            FROM users u
-            ORDER BY coins DESC
-            LIMIT 10
-        """) as cur:
-            top_coins = await cur.fetchall()
 
-        async with db.execute("""
-            SELECT uc.user_id, SUM(uc.qty) as total_cards
-            FROM user_cards uc
-            GROUP BY uc.user_id
-            ORDER BY total_cards DESC
-            LIMIT 10
-        """) as cur:
-            top_cards = await cur.fetchall()
+    # 1) Score-Board (gewichtete Punkte)
+    score_rows = await get_collection_leaderboard(limit)
 
-    def fmt(rows):
-        if not rows: return "Keine Daten."
-        return "\n".join(f"{i}. <@{uid}> — **{val}**" for i, (uid, val) in enumerate(rows, 1))
+    # 2) Cardcount-Board (reine Menge)
+    count_rows = await get_cardcount_leaderboard(limit)
 
-    embed = discord.Embed(title="🏆 Leaderboard", color=discord.Color.brand_green())
-    embed.add_field(name="💰 Top Coins", value=fmt(top_coins), inline=False)
-    embed.add_field(name="🎴 Top Karten (gesamt)", value=fmt(top_cards), inline=False)
-    await interaction.followup.send(embed=embed, ephemeral=False)
+    # Helper zum hübschen Anzeigen (User-Erwähnung)
+    def fmt_user(uid: int) -> str:
+        # Schnell & robust: Mention ohne API-Call
+        return f"<@{uid}>"
+
+    def build_table(rows, with_score: bool):
+        lines = []
+        medal = {1: "🥇", 2: "🥈", 3: "🥉"}
+        for i, row in enumerate(rows, start=1):
+            if with_score:
+                uid, cards_total, score = row
+                pre = medal.get(i, f"{i:2d}.")
+                lines.append(f"{pre} {fmt_user(uid)} — **{int(score)} Punkte** · {int(cards_total)} Karten")
+            else:
+                uid, cards_total = row
+                pre = medal.get(i, f"{i:2d}.")
+                lines.append(f"{pre} {fmt_user(uid)} — **{int(cards_total)} Karten**")
+        return "\n".join(lines) if lines else "– noch keine Daten –"
+
+    embed = discord.Embed(
+        title="🏆 Leaderboard",
+        description="Ranking der **wertvollsten** Sammlungen (Score) und der **größten** Sammlungen (Menge).",
+        color=discord.Color.gold()
+    )
+    embed.add_field(
+        name="💎 Top Sammlung (Score)",
+        value=build_table(score_rows, with_score=True),
+        inline=False
+    )
+    embed.add_field(
+        name="📦 Top Kartenanzahl",
+        value=build_table(count_rows, with_score=False),
+        inline=False
+    )
+    embed.set_footer(text="Punkte: Common=1, Rare=2, Ultra Rare=5, Legendary=10")
+
+    await interaction.followup.send(embed=embed)
+
 
 
 
