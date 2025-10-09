@@ -32,11 +32,11 @@ DUPLICATE_COINS = int(os.getenv("DUPLICATE_COINS", "5"))
 def get_rarity_color(rarity: str) -> discord.Color:
     r = (rarity or "").strip().lower()
     if r == "legendary":
-        return discord.Color.gold()
-    if r == "ultra rare":
         return discord.Color.purple()
+    if r == "ultra rare":
+        return discord.Color.gold()
     if r == "rare":
-        return discord.Color.blurple()
+        return discord.Color.fuchsia()
     # default (u. a. "common")
     return discord.Color.dark_gray()
 
@@ -547,9 +547,9 @@ class InventoryView(discord.ui.View):
         c = self.cards[self.index]
         card_id, name, rarity, image_url, flow, punch, qty = c
         color = (
-    discord.Color.gold() if rarity == "Legendary"
-    else (discord.Color.purple() if rarity == "Ultra Rare"
-          else (discord.Color.blurple() if rarity == "Rare" else discord.Color.dark_gray()))
+    discord.Color.purple() if rarity == "Legendary"
+    else (discord.Color.gold() if rarity == "Ultra Rare"
+          else (discord.Color.fuchsia() if rarity == "Rare" else discord.Color.dark_gray()))
 )
         embed = discord.Embed(
             title=f"📚 Inventar – Karte {self.index+1}/{len(self.cards)}",
