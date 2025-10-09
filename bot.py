@@ -42,10 +42,10 @@ def get_rarity_color(rarity: str) -> discord.Color:
 
 # Seltenheits-Gewichte (anpassbar)
 DEFAULT_WEIGHTS = {
-    "Common": 80,
-    "Rare": 20,
-    "Ultra Rare": 10,
-    "Legendary": 2
+    "Common": 75,
+    "Rare": 25,
+    "Ultra Rare": 3,
+    "Legendary": 0.5
 }
 
 # ---------------- Bot Grundgerüst ----------------
