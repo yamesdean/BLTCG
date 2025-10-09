@@ -490,6 +490,13 @@
         "stats": {"flow": 76, "punchlines": 75}
     },
     {
+        "id": "mtmaskrare",
+        "name": "M.T. Mask",
+        "rarity": "Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425885529274322945/mtmaskrare.png?ex=68e936e1&is=68e7e561&hm=8bbcd48a20f895171493bc368dbd1c67011998dd9945f4f36cbcdef028803cf6&",
+        "stats": {"flow": 75, "punchlines": 80}
+    },
+    {
         "id": "marcenicultrarare",
         "name": "Marcenic Rookie",
         "rarity": "Ultra Rare",
@@ -537,6 +544,20 @@
         "rarity": "Ultra Rare",
         "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425233144084435014/namechangaultrarare.png?ex=68e6d74d&is=68e585cd&hm=880cdca0b7d397bb47d54fef81b86ebed783e67be2570edab7bae055931ef6c6&",
         "stats": {"flow": 70, "punchlines": 22}
+    },
+    {
+        "id": "turniersiegerultrarare",
+        "name": "Turniersieger Tag Team",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425885528561029191/turniersiegerultrarare.png?ex=68e936e1&is=68e7e561&hm=886c6d122e55858564efd1f0eaf0a5c8da14b3bdc9e3e6d82db0a03a0d22528d&",
+        "stats": {"flow": 94, "punchlines": 94}
+    },
+    {
+        "id": "omasstolzultrarare",
+        "name": "Omas Stolz Tag Team",
+        "rarity": "Ultra Rare",
+        "image_url": "https://cdn.discordapp.com/attachments/1425117926486179951/1425885528942837760/omasstolzultrarare.png?ex=68e936e1&is=68e7e561&hm=e1262b65f35c62e3701cd11d5a28de634fad67a080b82702da563f888351b278&",
+        "stats": {"flow": 94, "punchlines": 94}
     },
     {
         "id": "yameslegendary",
