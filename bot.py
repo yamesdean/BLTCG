@@ -429,7 +429,7 @@ async def daily_card(interaction: discord.Interaction):
 
     # 4) Coins für Duplikat
     if duplicate:
-        await add_coins(interaction.user.id, 2)
+        await add_coins(interaction.user.id, 5)
 
    # 5) Embed bauen (nur Flow & Punchlines anzeigen)
     color = get_rarity_color(rarity)
