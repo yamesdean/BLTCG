@@ -142,6 +142,66 @@ async def init_db():
         await db.commit()
 
 
+# Karte nach exakter ID oder Name-Fragment finden
+async def find_card_by_id_or_name(needle: str):
+    needle_id = needle.strip()
+    like = f"%{needle.strip()}%"
+    query = """
+    SELECT id, name, rarity, image_url
+    FROM cards
+    WHERE id = ? OR name LIKE ?
+    ORDER BY (id = ?) DESC, name ASC
+    LIMIT 1
+    """
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute(query, (needle_id, like, needle_id)) as cur:
+            return await cur.fetchone()  # (id, name, rarity, image_url) oder None
+
+# Besitzerliste für eine bestimmte Karte (nach Menge sortiert)
+async def get_owners_for_card(card_id: str, limit: int = 50):
+    query = """
+    SELECT user_id, qty
+    FROM user_cards
+    WHERE card_id = ? AND qty > 0
+    ORDER BY qty DESC, user_id ASC
+    LIMIT ?
+    """
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute(query, (card_id, limit)) as cur:
+            return await cur.fetchall()  # [(user_id, qty), ...]
+from discord import app_commands
+
+async def autocomplete_cards_by_name_or_id(interaction: discord.Interaction, current: str):
+    like = f"%{(current or '').strip()}%"
+    query = """
+    SELECT id, name, rarity
+    FROM cards
+    WHERE id LIKE ? OR name LIKE ?
+    ORDER BY 
+      CASE rarity
+        WHEN 'Legendary'  THEN 4
+        WHEN 'Ultra Rare' THEN 3
+        WHEN 'Rare'       THEN 2
+        ELSE 1
+      END DESC,
+      name ASC
+    LIMIT 25
+    """
+    try:
+        async with aiosqlite.connect(DB_PATH) as db:
+            async with db.execute(query, (like, like)) as cur:
+                rows = await cur.fetchall()
+        # Label schön + value = ID (stabil)
+        choices = []
+        for cid, name, rarity in rows:
+            label = f"{name} [{rarity}] — {cid}"
+            choices.append(app_commands.Choice(name=label[:100], value=cid[:100]))
+        return choices
+    except Exception:
+        return []
+
+
+
 async def user_has_card_qty(user_id: int, card_id: str, qty: int) -> bool:
     async with aiosqlite.connect(DB_PATH) as db:
         async with db.execute("SELECT qty FROM user_cards WHERE user_id = ? AND card_id = ?", (user_id, card_id)) as cur:
@@ -660,6 +720,57 @@ async def inventory(interaction: discord.Interaction):
         return await interaction.followup.send("📦 Du hast noch keine Karten.", ephemeral=True)
     view = InventoryView(interaction.user.id, cards, start_index=0)
     await interaction.followup.send(embed=view.build_embed(), view=view, ephemeral=True)
+
+@guild_only
+@bot.tree.command(name="kartesuchen", description="Zeigt, welche User eine bestimmte Karte besitzen und wie oft.")
+@app_commands.describe(karten_id="ID oder Name der Karte", öffentlich="Wenn an: im Channel posten (sonst nur für dich).")
+@app_commands.autocomplete(karten_id=autocomplete_cards_by_name_or_id)
+async def kartesuchen_cmd(interaction: discord.Interaction, karten_id: str, öffentlich: bool = False):
+    # Standard: privat (ephemeral), öffentlich optional
+    await interaction.response.defer(ephemeral=not öffentlich)
+
+    # 1) Karte auflösen (ID oder Name)
+    card = await find_card_by_id_or_name(karten_id)
+    if not card:
+        return await interaction.followup.send("❌ Karte nicht gefunden. Prüfe ID/Name.", ephemeral=True)
+    cid, name, rarity, image_url = card
+
+    # 2) Besitzer laden
+    owners = await get_owners_for_card(cid, limit=200)
+
+    # 3) Ausgabe vorbereiten
+    def fmt_user(uid: int) -> str:
+        # Erwähnung, ohne API-Call (Discord rendert <@id> → Name)
+        return f"<@{uid}>"
+
+    lines = []
+    total_qty = 0
+    for i, (uid, qty) in enumerate(owners, start=1):
+        medal = {1: "🥇", 2: "🥈", 3: "🥉"}.get(i, f"{i:2d}.")
+        total_qty += int(qty)
+        lines.append(f"{medal} {fmt_user(uid)} — **x{int(qty)}**")
+
+    owners_text = "\n".join(lines) if lines else "– aktuell besitzt niemand diese Karte –"
+
+    # 4) Embed
+    color = get_rarity_color(rarity) if 'get_rarity_color' in globals() else discord.Color.blurple()
+    desc = f"**{name}**\nSeltenheit: **{rarity}**\nID: `{cid}`"
+    embed = discord.Embed(title="🔎 Kartenbesitzer", description=desc, color=color)
+    if image_url:
+        embed.set_thumbnail(url=image_url)
+    embed.add_field(name="Besitzer (Top)", value=owners_text, inline=False)
+    embed.set_footer(text=f"Gesamt-Kopien im Umlauf: {total_qty}")
+
+    # 5) Senden
+    if öffentlich:
+        try:
+            await interaction.channel.send(embed=embed)
+            await interaction.followup.send("✅ Im Channel gepostet.", ephemeral=True)
+        except discord.Forbidden:
+            await interaction.followup.send(embed=embed, ephemeral=True)
+    else:
+        await interaction.followup.send(embed=embed, ephemeral=True)
+
 
 @guild_only
 @bot.tree.command(name="top", description="Leaderboard: Wertvollste Sammlungen & größte Sammlungen.")
