@@ -25,6 +25,8 @@ if not TOKEN:
 
 DB_PATH = os.getenv("DB_PATH", "cards.db")
 CARDS_JSON = os.getenv("CARDS_JSON", "cards.json")
+LATEST_SET = os.getenv("LATEST_SET", "S2")          # Shop zieht IMMER aus dem neuesten Set
+DEFAULT_ACTIVE_SET = os.getenv("DEFAULT_ACTIVE_SET", LATEST_SET)  # neue User starten hier
 PULL_COOLDOWN_SECONDS = 5 * 60 * 60
 DUPLICATE_COINS = int(os.getenv("DUPLICATE_COINS", "5"))
 
@@ -88,6 +90,7 @@ async def init_db():
             id TEXT PRIMARY KEY,
             name TEXT NOT NULL,
             rarity TEXT NOT NULL,
+            set_id TEXT,
             image_url TEXT NOT NULL,
             flow INTEGER,
             punchlines INTEGER,
@@ -98,7 +101,8 @@ async def init_db():
         CREATE TABLE IF NOT EXISTS users (
             user_id INTEGER PRIMARY KEY,
             last_pull_ts INTEGER DEFAULT 0,
-            coins INTEGER DEFAULT 0
+            coins INTEGER DEFAULT 0,
+            active_set TEXT
         );
 
         CREATE TABLE IF NOT EXISTS user_cards (
@@ -127,19 +131,42 @@ async def init_db():
         );
         """)
 
-        # falls alte DB ohne coins-Spalte:
+        # ---- migrations (safe for existing DBs)
+
+        # users table
         async with db.execute("PRAGMA table_info(users)") as cur:
-            cols = [r[1] for r in await cur.fetchall()]
-        if "coins" not in cols:
+            user_cols = [r[1] for r in await cur.fetchall()]
+
+        if "coins" not in user_cols:
             await db.execute("ALTER TABLE users ADD COLUMN coins INTEGER DEFAULT 0")
 
+        if "active_set" not in user_cols:
+            await db.execute("ALTER TABLE users ADD COLUMN active_set TEXT")
+            await db.execute(
+                "UPDATE users SET active_set = ? WHERE active_set IS NULL",
+                (DEFAULT_ACTIVE_SET,)
+            )
+
+        # cards table
+        async with db.execute("PRAGMA table_info(cards)") as cur:
+            card_cols = [r[1] for r in await cur.fetchall()]
+
+        if "set_id" not in card_cols:
+            await db.execute("ALTER TABLE cards ADD COLUMN set_id TEXT")
+            await db.execute(
+                "UPDATE cards SET set_id = 'S1' WHERE set_id IS NULL"
+            )
+
+        # rarity weights
         for r, w in DEFAULT_WEIGHTS.items():
             await db.execute(
                 "INSERT INTO rarity_weights(rarity, weight) VALUES (?, ?) "
                 "ON CONFLICT(rarity) DO UPDATE SET weight=excluded.weight",
                 (r, w)
             )
+
         await db.commit()
+
 
 
 # Karte nach exakter ID oder Name-Fragment finden
@@ -368,19 +395,21 @@ async def load_cards_from_json():
     async with aiosqlite.connect(DB_PATH) as db:
         for c in cards:
             stats = c.get("stats", {})
+            set_id = c.get("set_id") or ("S2" if str(c["id"]).endswith("_s2") else "S1")
             await db.execute("""
-                INSERT INTO cards(id, name, rarity, image_url, flow, punchlines, style, reputation)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                INSERT INTO cards(id, name, rarity, set_id, image_url, flow, punchlines, style, reputation)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
                 ON CONFLICT(id) DO UPDATE SET
                     name=excluded.name,
                     rarity=excluded.rarity,
+                    set_id=excluded.set_id,
                     image_url=excluded.image_url,
                     flow=excluded.flow,
                     punchlines=excluded.punchlines,
                     style=excluded.style,
                     reputation=excluded.reputation
             """, (
-                c["id"], c["name"], c["rarity"], c["image_url"],
+                c["id"], c["name"], c["rarity"], set_id, c["image_url"],
                 stats.get("flow"), stats.get("punchlines"),
                 stats.get("style"), stats.get("reputation")
             ))
@@ -414,13 +443,27 @@ async def pick_rarity() -> str:
     weights = [w for (_, w) in rows]
     return random.choices(rarities, weights=weights, k=1)[0]
 
-async def pick_random_card_for_rarity(rarity: str):
+async def pick_random_card_for_rarity(rarity: str, set_id: str | None = None):
     async with aiosqlite.connect(DB_PATH) as db:
-        async with db.execute("SELECT id, name, rarity, image_url, flow, punchlines, style, reputation FROM cards WHERE rarity = ?", (rarity,)) as cur:
-            rows = await cur.fetchall()
+        if set_id:
+            async with db.execute(
+                "SELECT id, name, rarity, image_url, flow, punchlines, style, reputation "
+                "FROM cards WHERE rarity = ? AND set_id = ?",
+                (rarity, set_id)
+            ) as cur:
+                rows = await cur.fetchall()
+        else:
+            async with db.execute(
+                "SELECT id, name, rarity, image_url, flow, punchlines, style, reputation "
+                "FROM cards WHERE rarity = ?",
+                (rarity,)
+            ) as cur:
+                rows = await cur.fetchall()
+
     if not rows:
         return None
     return random.choice(rows)
+
 
 async def add_coins(user_id: int, amount: int):
     async with aiosqlite.connect(DB_PATH) as db:
@@ -436,6 +479,27 @@ async def get_coins(user_id: int) -> int:
         async with db.execute("SELECT coins FROM users WHERE user_id = ?", (user_id,)) as cur:
             row = await cur.fetchone()
     return int(row[0]) if row and row[0] is not None else 0
+
+async def get_active_set(user_id: int) -> str:
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute("SELECT active_set FROM users WHERE user_id = ?", (user_id,)) as cur:
+            row = await cur.fetchone()
+    if row and row[0]:
+        return str(row[0])
+    return DEFAULT_ACTIVE_SET
+
+async def set_active_set(user_id: int, set_id: str):
+    set_id = (set_id or "").strip().upper()
+    if set_id not in ("S1", "S2"):
+        raise ValueError("set_id must be S1 or S2")
+    async with aiosqlite.connect(DB_PATH) as db:
+        await db.execute(
+            "INSERT INTO users(user_id, active_set) VALUES (?, ?) "
+            "ON CONFLICT(user_id) DO UPDATE SET active_set = excluded.active_set",
+            (user_id, set_id)
+        )
+        await db.commit()
+
 
 async def add_to_inventory(user_id: int, card_id: str) -> bool:
     """True, wenn Duplikat; sonst False"""
@@ -472,8 +536,10 @@ async def daily_card(interaction: discord.Interaction):
         )
 
     # 2) Karte ziehen (Rarity -> zufällige Karte dieser Seltenheit)
+    
+    active_set = await get_active_set(interaction.user.id)
     rarity = await pick_rarity()
-    card = await pick_random_card_for_rarity(rarity)
+    card = await pick_random_card_for_rarity(rarity, set_id=active_set)
     if card is None:
         return await interaction.followup.send(
             "⚠️ Keine Karten für diese Seltenheit gefunden. `cards.json` füllen & Bot neu starten.",
@@ -547,7 +613,7 @@ async def shop(interaction: discord.Interaction):
 
     # Karte ziehen
     rarity = await pick_rarity()
-    card = await pick_random_card_for_rarity(rarity)
+    card = await pick_random_card_for_rarity(rarity, set_id=LATEST_SET)
     if card is None:
         return await interaction.followup.send("⚠️ Shop leer. Bitte später nochmal.", ephemeral=True)
 
@@ -597,11 +663,22 @@ async def shop(interaction: discord.Interaction):
         await interaction.followup.send(embed=embed, ephemeral=True)
 
 class InventoryView(discord.ui.View):
-    def __init__(self, user_id: int, cards: list[tuple], start_index: int = 0, timeout: float = 120):
+    def __init__(
+        self,
+        user_id: int,
+        cards: list[tuple],
+        start_index: int = 0,
+        show_all_sets: bool = False,
+        active_set: str = "S2",
+        timeout: float = 120
+    ):
         super().__init__(timeout=timeout)
         self.user_id = user_id
-        self.cards = cards  # [(id, name, rarity, image_url, flow, punch, qty), ...]
+        self.cards = cards
         self.index = start_index
+        self.show_all_sets = show_all_sets
+        self.active_set = active_set
+
 
     def build_embed(self) -> discord.Embed:
         c = self.cards[self.index]
@@ -623,6 +700,9 @@ class InventoryView(discord.ui.View):
         if punch is not None: stats.append(f"Punchlines: **{punch}**")
         if stats:
             embed.add_field(name="Stats", value=" · ".join(stats), inline=False)
+            mode = "Alle Sets" if self.show_all_sets else f"Nur {self.active_set}"
+            embed.set_footer(text=f"{mode} · Karte {self.index+1}/{len(self.cards)}")
+
         return embed
 
     async def update(self, interaction: discord.Interaction):
@@ -635,23 +715,67 @@ class InventoryView(discord.ui.View):
         self.index = (self.index - 1) % len(self.cards)
         await self.update(interaction)
 
+    @discord.ui.button(label="Alle Sets: AUS", style=discord.ButtonStyle.primary)
+    async def toggle_sets_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.user_id:
+            return await interaction.response.send_message(
+            "Nur der Besitzer kann hier umschalten.",
+            ephemeral=True
+        )
+
+        # Toggle umschalten
+        self.show_all_sets = not self.show_all_sets
+        button.label = f"Alle Sets: {'AN' if self.show_all_sets else 'AUS'}"
+
+        # Karten neu laden
+        only_set = None if self.show_all_sets else self.active_set
+        self.cards = await get_inventory_full(self.user_id, only_set=only_set)
+
+        if not self.cards:
+            return await interaction.response.edit_message(
+            content="📦 Keine Karten in diesem Filter.",
+            embed=None,
+            view=self
+        )
+
+        self.index = 0
+        await interaction.response.edit_message(
+        embed=self.build_embed(),
+        view=self
+    )
+
+    
+
     @discord.ui.button(label="Weiter ⟶", style=discord.ButtonStyle.secondary)
     async def next_btn(self, interaction: discord.Interaction, button: discord.ui.Button):
         self.index = (self.index + 1) % len(self.cards)
         await self.update(interaction)
 
-async def get_inventory_full(user_id: int):
+async def get_inventory_full(user_id: int, only_set: str | None = None):
     async with aiosqlite.connect(DB_PATH) as db:
-        async with db.execute("""
-            SELECT c.id, c.name, c.rarity, c.image_url, c.flow, c.punchlines, uc.qty
-            FROM user_cards uc
-            JOIN cards c ON c.id = uc.card_id
-            WHERE uc.user_id = ?
-            ORDER BY 
-                CASE c.rarity WHEN 'Legendary' THEN 4 WHEN 'Ultra Rare' THEN 3 WHEN 'Rare' THEN 2 ELSE 1 END DESC,
-                c.name ASC
-        """, (user_id,)) as cur:
-            return await cur.fetchall()
+        if only_set:
+            async with db.execute("""
+                SELECT c.id, c.name, c.rarity, c.image_url, c.flow, c.punchlines, uc.qty
+                FROM user_cards uc
+                JOIN cards c ON c.id = uc.card_id
+                WHERE uc.user_id = ? AND c.set_id = ?
+                ORDER BY 
+                    CASE c.rarity WHEN 'Legendary' THEN 4 WHEN 'Ultra Rare' THEN 3 WHEN 'Rare' THEN 2 ELSE 1 END DESC,
+                    c.name ASC
+            """, (user_id, only_set)) as cur:
+                return await cur.fetchall()
+        else:
+            async with db.execute("""
+                SELECT c.id, c.name, c.rarity, c.image_url, c.flow, c.punchlines, uc.qty
+                FROM user_cards uc
+                JOIN cards c ON c.id = uc.card_id
+                WHERE uc.user_id = ?
+                ORDER BY 
+                    CASE c.rarity WHEN 'Legendary' THEN 4 WHEN 'Ultra Rare' THEN 3 WHEN 'Rare' THEN 2 ELSE 1 END DESC,
+                    c.name ASC
+            """, (user_id,)) as cur:
+                return await cur.fetchall()
+
 async def set_coins(user_id: int, value: int):
     async with aiosqlite.connect(DB_PATH) as db:
         await db.execute(
@@ -660,6 +784,54 @@ async def set_coins(user_id: int, value: int):
             (user_id, value, value)
         )
         await db.commit()
+
+@guild_only
+@bot.tree.command(name="inventar_suche", description="Zeigt dir eine Karte (mit Bild), falls du sie besitzt.")
+@app_commands.describe(karten_id="ID oder Name der Karte", alle_sets="Wenn an: in allen Sets suchen")
+@app_commands.autocomplete(karten_id=autocomplete_cards_by_name_or_id)
+async def inventar_suche(interaction: discord.Interaction, karten_id: str, alle_sets: bool = False):
+    await interaction.response.defer(ephemeral=True)
+
+    # Karte finden
+    card = await find_card_by_id_or_name(karten_id)
+    if not card:
+        return await interaction.followup.send("❌ Karte nicht gefunden.", ephemeral=True)
+    cid, name, rarity, image_url = card
+
+    # Besitz prüfen + qty holen (mit optionalem Set-Filter)
+    active_set = await get_active_set(interaction.user.id)
+    query = """
+    SELECT uc.qty, c.flow, c.punchlines, c.set_id
+    FROM user_cards uc
+    JOIN cards c ON c.id = uc.card_id
+    WHERE uc.user_id = ? AND uc.card_id = ?
+    """
+    params = [interaction.user.id, cid]
+
+    if not alle_sets:
+        query += " AND c.set_id = ?"
+        params.append(active_set)
+
+    async with aiosqlite.connect(DB_PATH) as db:
+        async with db.execute(query, tuple(params)) as cur:
+            row = await cur.fetchone()
+
+    if not row:
+        scope = "in allen Sets" if alle_sets else f"in Set {active_set}"
+        return await interaction.followup.send(f"📦 Du besitzt diese Karte nicht ({scope}).", ephemeral=True)
+
+    qty, flow, punch, set_id = row
+
+    embed = discord.Embed(
+        title="🔎 Gefunden!",
+        description=f"**{name}**\nSeltenheit: **{rarity}**\nSet: **{set_id}**\nMenge: **x{int(qty)}**",
+        color=get_rarity_color(rarity)
+    )
+    if image_url:
+        embed.set_image(url=image_url)
+
+    await interaction.followup.send(embed=embed, ephemeral=True)
+
 
 # /coins  → zeigt die eigenen (oder fremden) Coins
 @guild_only
@@ -715,11 +887,30 @@ async def coins_set(interaction: discord.Interaction, user: discord.User, value:
 @bot.tree.command(name="inventar", description="Zeigt dein Karten-Inventar als Galerie (nur für dich sichtbar).")
 async def inventory(interaction: discord.Interaction):
     await interaction.response.defer(ephemeral=True)
-    cards = await get_inventory_full(interaction.user.id)
+
+    # 1) aktives Set des Users holen (S1 oder S2)
+    active_set = await get_active_set(interaction.user.id)
+
+    # 2) Standardmäßig nur Karten aus dem aktiven Set laden
+    cards = await get_inventory_full(interaction.user.id, only_set=active_set)
+
     if not cards:
-        return await interaction.followup.send("📦 Du hast noch keine Karten.", ephemeral=True)
-    view = InventoryView(interaction.user.id, cards, start_index=0)
+        return await interaction.followup.send(
+            f"📦 Du hast noch keine Karten in **{active_set}**.",
+            ephemeral=True
+        )
+
+    # 3) View mit Toggle-Status initialisieren
+    view = InventoryView(
+        interaction.user.id,
+        cards,
+        start_index=0,
+        show_all_sets=False,   # Toggle startet AUS
+        active_set=active_set  # wichtig: View weiß, welches Set "normal" ist
+    )
+
     await interaction.followup.send(embed=view.build_embed(), view=view, ephemeral=True)
+
 
 @guild_only
 @bot.tree.command(name="kartesuchen", description="Zeigt, welche User eine bestimmte Karte besitzen und wie oft.")
@@ -770,6 +961,17 @@ async def kartesuchen_cmd(interaction: discord.Interaction, karten_id: str, öff
             await interaction.followup.send(embed=embed, ephemeral=True)
     else:
         await interaction.followup.send(embed=embed, ephemeral=True)
+
+@guild_only
+@bot.tree.command(name="set", description="Wähle, aus welchem Set du Karten ziehst (S1 oder S2).")
+@app_commands.describe(set_id="S1 oder S2")
+async def set_cmd(interaction: discord.Interaction, set_id: str):
+    try:
+        await set_active_set(interaction.user.id, set_id)
+        await interaction.response.send_message(f"✅ Dein aktives Set ist jetzt **{set_id.upper()}**.", ephemeral=True)
+    except ValueError:
+        await interaction.response.send_message("❌ Ungültig. Bitte **S1** oder **S2**.", ephemeral=True)
+
 
 
 @guild_only

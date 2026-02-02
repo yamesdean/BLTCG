@@ -579,7 +579,876 @@
   "rarity": "Legendary",
   "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/haiselegendary.png",
   "stats": {"flow": 100, "punchlines": 100}
+},
+{
+  "id": "bzgzcommon_s2",
+  "name": "BZGZ",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/bzgzcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "mikocommon_s2",
+  "name": "Miko",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/mikocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "labubu67common_s2",
+  "name": "labubu 67",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/labubu67common_s2.png",
+  "stats": {}
+},
+{
+  "id": "liquidbaraka67common_s2",
+  "name": "LiquidBaraka67",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/liquidbaraka67common_s2.png",
+  "stats": {}
+},
+{
+  "id": "paradoggcommon_s2",
+  "name": "ParaDogg",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/paradoggcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "sonoruscommon_s2",
+  "name": "Sonorus",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/sonoruscommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "romancommon_s2",
+  "name": "Roman",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/romancommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "xtraherbcommon_s2",
+  "name": "XtraHerb",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/xtraherbcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "aalmanncommon_s2",
+  "name": "Aalmann",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/aalmanncommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "angezogenmaskulincommon_s2",
+  "name": "Angezogen Maskulin",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/angezogenmaskulincommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "earlcursedcommon_s2",
+  "name": "EarlCursed",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/earlcursedcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "drkotcommon_s2",
+  "name": "Dr. Kot",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/drkotcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "amnesia437common_s2",
+  "name": "Amnesia437",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/amnesia437common_s2.png",
+  "stats": {}
+},
+{
+  "id": "andir2common_s2",
+  "name": "Andir2",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/andir2common_s2.png",
+  "stats": {}
+},
+{
+  "id": "äymcommon_s2",
+  "name": "Äym",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/äymcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "devycommon_s2",
+  "name": "Devy",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/devycommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "yaleocommon_s2",
+  "name": "YaLeo",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/yaleocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "alicemarysuecommon_s2",
+  "name": "AliceMarySue",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/alicemarysuecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "raikucommon_s2",
+  "name": "Raiku",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/raikucommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "undastcommon_s2",
+  "name": "UnDast",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/undastcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "harodcommon_s2",
+  "name": "Harod",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/harodcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "mhhh7887common_s2",
+  "name": "mhhh7887",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/mhhh7887common_s2.png",
+  "stats": {}
+},
+{
+  "id": "roselincommon_s2",
+  "name": "Roselin",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/roselincommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "torcommon_s2",
+  "name": "Tor",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/torcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "yamabloodchainscommon_s2",
+  "name": "Yama Bloodchains",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/yamabloodchainscommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "lotuscommon_s2",
+  "name": "Lotus",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/lotuscommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "ghostefacecommon_s2",
+  "name": "ghosteface",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/ghostefacecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "orphxncommon_s2",
+  "name": "Orphxn",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/orphxncommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "oworicommon_s2",
+  "name": "Owori",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/oworicommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "nuttensohncommon_s2",
+  "name": "Nuttensohn",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/nuttensohncommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "jessycommon_s2",
+  "name": "JESSY",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/jessycommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "barzsimpsoncommon_s2",
+  "name": "BarZ Simpson",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/barzsimpsoncommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "basketcommon_s2",
+  "name": "Basket",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/basketcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "marucommon_s2",
+  "name": "Maru",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/marucommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "mchomiecommon_s2",
+  "name": "MCHomie",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/mchomiecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "fzudem2common_s2",
+  "name": "Fzudem2",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/fzudem2common_s2.png",
+  "stats": {}
+},
+{
+  "id": "bystderbabacommon_s2",
+  "name": "Bystderbaba",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/bystderbabacommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "pistorcommon_s2",
+  "name": "Pistor",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/pistorcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "ludrechtcommon_s2",
+  "name": "Ludrecht",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/ludrechtcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "gutenbergcommon_s2",
+  "name": "Gutenberg",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/gutenbergcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "orecommon_s2",
+  "name": "Ore",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/orecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "henicommon_s2",
+  "name": "Heni",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/henicommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "marceniccommon_s2",
+  "name": "Marcenic",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/marceniccommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "gastercommon_s2",
+  "name": "Gaster",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/gastercommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "jazziarcommon_s2",
+  "name": "Jazziar",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/jazziarcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "minuseinscommon_s2",
+  "name": "minuseins",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/minuseinscommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "bebbisaggcommon_s2",
+  "name": "Bebbisagg",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/bebbisaggcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "rigcommon_s2",
+  "name": "R.I.G",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/rigcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "trauma57common_s2",
+  "name": "Trauma57",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/trauma57common_s2.png",
+  "stats": {}
+},
+{
+  "id": "babaznabacommon_s2",
+  "name": "BabaZnaba",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/babaznabacommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "scorch69common_s2",
+  "name": "SCORCH 69",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/scorch69common_s2.png",
+  "stats": {}
+},
+{
+  "id": "snotcommon_s2",
+  "name": "Snot",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/snotcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "benschocommon_s2",
+  "name": "Benscho",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/benschocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "milleniumcommon_s2",
+  "name": "Millenium",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/milleniumcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "zamekcommon_s2",
+  "name": "Zamek",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/zamekcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "sanangelocommon_s2",
+  "name": "$an-Angelo",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/sanangelocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "nvycommon_s2",
+  "name": "Nvy",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/nvycommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "dokucommon_s2",
+  "name": "Doku",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/dokucommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "dave2common_s2",
+  "name": "Dave2",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/dave2common_s2.png",
+  "stats": {}
+},
+{
+  "id": "whylecommon_s2",
+  "name": "Whyle",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/whylecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "dobcommon_s2",
+  "name": "Dob",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/dobcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "tiprocommon_s2",
+  "name": "Tipro",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/tiprocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "crackbundycommon_s2",
+  "name": "Crack Bundy",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/crackbundycommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "acidezrahcommon_s2",
+  "name": "Acid Ezrah",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/acidezrahcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "schorecommon_s2",
+  "name": "Schore",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/schorecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "drkcommon_s2",
+  "name": "DRK",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/drkcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "mrflauschigcommon_s2",
+  "name": "Mr. Flauschig",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/mrflauschigcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "lytcommon_s2",
+  "name": "Lyt",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/lytcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "lockcommon_s2",
+  "name": "Lock",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/lockcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "fentencommon_s2",
+  "name": "Fenten",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/fentencommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "klypcommon_s2",
+  "name": "KLYP",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/klypcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "kingkniebelcommon_s2",
+  "name": "King Kniebel",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/kingkniebelcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "battlerapquali21common_s2",
+  "name": "battlerapquali21",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/battlerapquali21common_s2.png",
+  "stats": {}
+},
+{
+  "id": "forteecommon_s2",
+  "name": "ForTee",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/forteecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "dizzycommon_s2",
+  "name": "Dizzy",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/dizzycommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "flyingeaglecommon_s2",
+  "name": "FlyingEagle",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/flyingeaglecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "practicecommon_s2",
+  "name": "practice",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/practicecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "kaisativa47common_s2",
+  "name": "Kaisativa47",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/kaisativa47common_s2.png",
+  "stats": {}
+},
+{
+  "id": "rattengiftcommon_s2",
+  "name": "Rattengift",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/rattengiftcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "slyheartcommon_s2",
+  "name": "slyheart",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/slyheartcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "f310common_s2",
+  "name": "F310",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/f310common_s2.png",
+  "stats": {}
+},
+{
+  "id": "jenneoncommon_s2",
+  "name": "Jenneon",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/jenneoncommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "smvkecommon_s2",
+  "name": "Smvke",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/smvkecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "darkicommon_s2",
+  "name": "Darki",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/darkicommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "tylercommon_s2",
+  "name": "tyler",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/tylercommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "isamarucommon_s2",
+  "name": "Isamaru",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/isamarucommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "maestrocommon_s2",
+  "name": "Maestro",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/maestrocommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "rokcecommon_s2",
+  "name": "Rokce",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/rokcecommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "jaykingcommon_s2",
+  "name": "JAY KING",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/jaykingcommon_s2.png",
+  "stats": {}
+},
+
+{
+  "id": "angezogenmaskulinicerare_s2",
+  "name": "Angezogen Maskulin",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/angezogenmaskulinicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "bzgzicerare_s2",
+  "name": "BZGZ",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/bzgzicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "earlcursedicerare_s2",
+  "name": "EarlCursed",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/earlcursedicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "labubu67icerare_s2",
+  "name": "labubu 67",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/labubu67icerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "liquidbaraka67icerare_s2",
+  "name": "LiquidBaraka67",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/liquidbaraka67icerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "mikoicerare_s2",
+  "name": "Miko",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/mikoicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "paradoggicerare_s2",
+  "name": "ParaDogg",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/paradoggicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "romanicerare_s2",
+  "name": "Roman",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/romanicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "sonorusicerare_s2",
+  "name": "Sonorus",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/sonorusicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "xtraherbicerare_s2",
+  "name": "XtraHerb",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/xtraherbicerare_s2.png",
+  "stats": {}
+},
+
+{
+  "id": "romanffultrarare_s2",
+  "name": "Roman",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/romanffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "roselinffultrarare_s2",
+  "name": "Roselin",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/roselinffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "schoreffultrarare_s2",
+  "name": "Schore",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/schoreffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "maestroffultrarare_s2",
+  "name": "Maestro",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/maestroffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "rokceffultrarare_s2",
+  "name": "Rokce",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/rokceffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "marcenicffultrarare_s2",
+  "name": "Marcenic",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/marcenicffultrarare_s2.png",
+  "stats": {}
+},
+{
+  "id": "kingkniebelffultrarare_s2",
+  "name": "King Kniebel",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/kingkniebelffultrarare_s2.png",
+  "stats": {}
+},
+
+{
+  "id": "romanlegendary_s2",
+  "name": "Roman",
+  "rarity": "Legendary",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/romanlegendary_s2.png",
+  "stats": {}
+},
+{
+  "id": "haiselegendary_s2",
+  "name": "Haise",
+  "rarity": "Legendary",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/haiselegendary_s2.png",
+  "stats": {}
 }
+
+
 
     
                                             
