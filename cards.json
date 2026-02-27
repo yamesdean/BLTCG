@@ -1292,6 +1292,30 @@
   "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/jaykingcommon_s2.png",
   "stats": {}
 },
+{
+  "id": "arscheselcommon_s2",
+  "name": "arschesel",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/arscheselcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "kurturfelcommon_s2",
+  "name": "Kurt Urfel",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/kurturfelcommon_s2.png",
+  "stats": {}
+},
+{
+  "id": "jblogloglogglogggloggcommon_s2",
+  "name": "BlogLogLogGloggGlogg",
+  "rarity": "Common",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/blogloglogglogggloggcommon_s2.png",
+  "stats": {}
+},
 
 {
   "id": "angezogenmaskulinicerare_s2",
