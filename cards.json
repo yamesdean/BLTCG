@@ -1309,7 +1309,7 @@
   "stats": {}
 },
 {
-  "id": "jblogloglogglogggloggcommon_s2",
+  "id": "blogloglogglogggloggcommon_s2",
   "name": "BlogLogLogGloggGlogg",
   "rarity": "Common",
   "set_id": "S2",
@@ -1395,6 +1395,14 @@
   "rarity": "Rare",
   "set_id": "S2",
   "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/xtraherbicerare_s2.png",
+  "stats": {}
+},
+{
+  "id": "dasistdiemainbesterunde_s2",
+  "name": "Das ist die Main",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/dasistdiemainbesterunde_s2.png",
   "stats": {}
 },
 
