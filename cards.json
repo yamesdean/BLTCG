@@ -1478,6 +1478,30 @@
   "set_id": "S2",
   "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/haiselegendary_s2.png",
   "stats": {}
+},
+{
+  "id": "orphxnbesterunde_s2_s2",
+  "name": "Orphxn",
+  "rarity": "Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/orphxnbesterunde_s2.png",
+  "stats": {}
+},
+{
+  "id": "minuseinshackerman_s2",
+  "name": "minuseins",
+  "rarity": "Ultra rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/minuseinshackerman_s2.png",
+  "stats": {}
+},
+{
+  "id": "sojoeverbigspender_s2",
+  "name": "SoJoever",
+  "rarity": "Ultra Rare",
+  "set_id": "S2",
+  "image_url": "https://raw.githubusercontent.com/yamesdean/bltcg-assets/main/Karten/sojoeverbigspender_s2.png",
+  "stats": {}
 }
 
 
